@@ -27,7 +27,7 @@ class Tasks(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(200), nullable=True)
     author = db.Column(db.String(200), db.ForeignKey('users.id'), nullable=False)
-    executor = db.Column(db.JSON, nullable=True)
+    executor = db.Column(db.String(200), db.ForeignKey('users.id'), nullable=False)
     text = db.Column(db.Text(), nullable=True)
     deadline = db.Column(db.DateTime, nullable=True)
     datetime = db.Column(db.DateTime, nullable=False, default=datetime.now())
